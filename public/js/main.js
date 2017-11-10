@@ -1,3 +1,14 @@
+
+function myFunction() {
+  // use jQuery ($ is shorthand) to find the div on the page and then change the html
+  // jQuery can do a lot of crazy stuff so make sure to google around to find out more
+
+  $("#demo").html("NEWWW PARAGRAPH #javascript #fire");
+
+  // 'img-circle' is a bootstrap thing! Check out more here: http://getbootstrap.com/css/
+  $("#doge-image").append(`<img class="img-circle" src="/images/wowdoge.jpeg" />`);
+}
+
 // Gets called whenever the user clicks "sign in" or "sign out".
 function toggleSignIn() {
   if (!firebase.auth().currentUser) { // if no user, handle login
@@ -5,13 +16,11 @@ function toggleSignIn() {
     provider.addScope('https://www.googleapis.com/auth/plus.login');
     firebase.auth().signInWithPopup(provider).then(function(result) {
       console.log("success");
-      // document.getElementById("sign").textContent = "Sign Out";
     }).catch(function(error) {
       console.error("error", error);
     });
   } else { // handle logout
     firebase.auth().signOut();
-    // document.getElementById("sign").textContent = "Sign In";
   }
 
   //This disables the button until login or logout is successful
