@@ -30,8 +30,8 @@ function addMessage(body, title) {
     body: body
   };
 
-  document.getElementById("new-post-body").innerHTML = "message...";
-  document.getElementById("new-post-title").innerHTML = "title...";
+  document.getElementById("new-post-body").value = "message...";
+  document.getElementById("new-post-title").value = "title...";
 
   var newPostKey = firebase.database().ref().child('stream').push().key;
   firebase.database().ref('/stream/' + newPostKey).set(postData);
