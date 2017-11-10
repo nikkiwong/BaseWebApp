@@ -30,13 +30,13 @@ function addMessage(body, title) {
     body: body
   };
 
-  document.getElementById("new-post-body").value = "message...";
-  document.getElementById("new-post-title").value = "title...";
-
   var newPostKey = firebase.database().ref().child('stream').push().key;
   firebase.database().ref('/stream/' + newPostKey).set(postData);
 }
 
+$("#refresh").click(function() {
+    $('#new-post-body, #new-post-title').val('').placeholder();
+});
 
 // This gets called whenver the form is submitted (check out the index.ejs).
 // Uses jQuery to get the message info and passes it to 'addMessage to actually submit the info to firebase.
