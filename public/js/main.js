@@ -10,7 +10,10 @@ function initializeStreamListener() {
     if (messages) {
       Object.keys(messages).forEach(function (key) {
         const message = messages[key];
-        $('#stream').append(`<div>${message.body}</div>` + `<button type="submit" id="like">Like</button>` );
+        $('#stream').append(`<div>${message.authorPic}</div>
+        	<br><div>Author: ${message.author}</div>
+        	<br><div>Message: ${message.body}</div>
+        	<button type="submit" id="like">Like</button>` );
       });
     }
   });
