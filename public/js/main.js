@@ -30,6 +30,9 @@ function addMessage(body, title) {
     body: body
   };
 
+  document.getElementById("new-post-body").textContent = "message...";
+  document.getElementById("new-post-title").textContent = "title...";
+
   var newPostKey = firebase.database().ref().child('stream').push().key;
   firebase.database().ref('/stream/' + newPostKey).set(postData);
 }
@@ -52,13 +55,13 @@ function toggleSignIn() {
     provider.addScope('https://www.googleapis.com/auth/plus.login');
     firebase.auth().signInWithPopup(provider).then(function(result) {
       console.log("success");
-      // document.getElementById("sign").innerHTML = "Sign Out";
+      document.getElementById("sign").innerHTML = "Sign Out";
     }).catch(function(error) {
       console.error("error", error);
     });
   } else { // handle logout
     firebase.auth().signOut();
-    // document.getElementById("sign").innerHTML = "Sign In";
+    document.getElementById("sign").innerHTML = "Sign In";
   }
 
   //This disables the button until login or logout is successful
