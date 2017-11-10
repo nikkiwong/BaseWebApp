@@ -16,11 +16,13 @@ function toggleSignIn() {
     provider.addScope('https://www.googleapis.com/auth/plus.login');
     firebase.auth().signInWithPopup(provider).then(function(result) {
       console.log("success");
+      document.getElementById("sign").textContent = "Sign Out";
     }).catch(function(error) {
       console.error("error", error);
     });
   } else { // handle logout
     firebase.auth().signOut();
+    document.getElementById("sign").textContent = "Sign In";
   }
 
   //This disables the button until login or logout is successful
