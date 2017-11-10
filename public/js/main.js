@@ -37,12 +37,16 @@ function addMessage(body, title) {
   firebase.database().ref('/stream/' + newPostKey).set(postData);
 }
 
-$("#like").click(function(){
+var likeButton = document.getElementById("like");
+
+likeButton.addEventListener("click", function(){
 	console.log("like button clicked");
 });
 
-$("#refresh").click(function() {
-    $('#new-post-body, #new-post-title').val('').placeholder();
+var refresh = document.getElementById("refresh");
+refresh.addEventListener('click', function(){
+	document.getElementById("new-post-title").placeholder = "title...";
+	document.getElementById("new-post-body").placeholder = "message...";
 });
 
 // This gets called whenver the form is submitted (check out the index.ejs).
