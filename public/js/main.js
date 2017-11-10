@@ -10,7 +10,7 @@ function initializeStreamListener() {
     if (messages) {
       Object.keys(messages).forEach(function (key) {
         const message = messages[key];
-        $('#stream').append(`<div>${message.body}</div>`);
+        $('#stream').append(`<div>${message.body}</div> <button type="submit" id="like">Like<button>` );
       });
     }
   });
@@ -33,6 +33,10 @@ function addMessage(body, title) {
   var newPostKey = firebase.database().ref().child('stream').push().key;
   firebase.database().ref('/stream/' + newPostKey).set(postData);
 }
+
+$("#like").click(function(){
+	console.log("like button clicked");
+});
 
 $("#refresh").click(function() {
     $('#new-post-body, #new-post-title').val('').placeholder();
